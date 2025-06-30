@@ -109,5 +109,11 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: build-artifacts
-      - name: Deploy to GitHub Pages+
+      - name: setup pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+      - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
